@@ -1,5 +1,5 @@
 # UE4HmapsGenerator (heightmaps generator)
-## Unrel Engine 4 scripts to:
+## Unreal Engine 4 scripts to:
 - Prepare and tile from SRTM (and others) DEM to UE heightmaps while keeping real world X,Y,Z proportions and metrics (UE u.u.) (srtm2heightmap.py)
 - Create landscape textures and materials. (materialsgen.py)
 - Assign landscape materials to tiles. (applymaterials.py)
@@ -10,9 +10,9 @@ Output example: https://www.youtube.com/watch?v=91U2XWXpHJk
 Script that takes GeoTiff (and other GDAL valid file drivers, SRTM .hgt images e.g.) and generates UE4 hightmaps tiles and texture files. Script needs GDAL installed (No need to have GDAL python binds installed). On Windows the easiest way to install GDAL is [osgeo4w]
 Also on Windows make sure you have appropriated sys environment sets, e.g.:
 
-"GDAL_DATA C:\Program Files\GDAL\gdal-data"
-"GDAL_DRIVER_PATH C:\Program Files\GDAL\gdalplugins"
-"GDAL_VERSION 3.1.1"
+- "GDAL_DATA C:\Program Files\GDAL\gdal-data"
+- "GDAL_DRIVER_PATH C:\Program Files\GDAL\gdalplugins"
+- "GDAL_VERSION 3.1.1"
 
 Script will ask for all necessary parameters needed to take the input images, generate the tiles and generate/inform the necessary importing X,Y,Z UE4 scales.
 It will generate a 'customtiles' directory and auxiliary files in the same directory as origin files are located. The image file to be used as landscape texture/materials is optional but if you use it, needs to be a georeferenced file as well in the same projection/EPSG as the DEM file.
@@ -23,7 +23,15 @@ Starting from raw SRTM images if you don't know how to answer the Y/N questions,
 
 The conventions used by the script are the following:
 
-![Alt text](https://github.com/Rodrigo-NH/UE4HmapsGenerator/readmeassets/origin.JPG "Scene origin")
+![Scene origin](https://raw.githubusercontent.com/Rodrigo-NH/UE4HmapsGenerator/main/readmeassets/origin.JPG)
+
+The script will detect the most top left coordinates as the origin coordinates for the tiles extraction. Script will ask if user wants to use the detected origin coordinates or indicate alternative coordinates somewhere in the scene to be used as origin for tiles extraction.
+
+![UE import screen](https://raw.githubusercontent.com/Rodrigo-NH/UE4HmapsGenerator/main/readmeassets/ueimportscreen.jpg)
+
+You can use the script to produce a single tile and import directly in landscape mode. If importing tiles in world composition mode, make sure option 'Flip Tile Y Coordinate' is not selected. Either way, use the X,Y,Z scales calculated by the script in the importing screen.
+
+
 
 [Work in progress]
 
