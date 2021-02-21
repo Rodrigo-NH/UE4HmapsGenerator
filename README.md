@@ -4,6 +4,8 @@
 - Create landscape textures and materials. (materialsgen.py)
 - Assign landscape materials to tiles. (applymaterials.py)
 
+Output example: https://www.youtube.com/watch?v=91U2XWXpHJk
+
 ## >srtm2heightmap.py<
 Script that takes GeoTiff (and other GDAL valid file drivers, SRTM .hgt images e.g.) and generates UE4 hightmaps tiles and texture files. Script needs GDAL installed (No need to have GDAL python binds installed). On Windows the easiest way to install GDAL is [osgeo4w]
 Also on Windows make sure you have appropriated sys environment sets, e.g.:
@@ -21,7 +23,7 @@ Starting from raw SRTM images if you don't know how to answer the Y/N questions,
 
 The conventions used by the script are the following:
 
-![Alt text](https://github.com/Rodrigo-NH/UE4HmapsGenerator/blob/main/readmeassets/origin.JPG "Scene origin")
+![Alt text](https://github.com/Rodrigo-NH/UE4HmapsGenerator/readmeassets/origin.jpg "Scene origin")
 
 [Work in progress]
 
