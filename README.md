@@ -23,7 +23,7 @@ Starting from raw SRTM images if you don't know how to answer the Y/N questions,
 
 The conventions used by the script are the following:
 
-![Alt text](https://github.com/Rodrigo-NH/UE4HmapsGenerator/readmeassets/origin.jpg "Scene origin")
+![Alt text](https://github.com/Rodrigo-NH/UE4HmapsGenerator/readmeassets/origin.JPG "Scene origin")
 
 [Work in progress]
 
