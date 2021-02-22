@@ -8,7 +8,7 @@ import pathlib
 inputdir = r'D:\MA\GIS\UE4\kingsvalley\customtiles' # Enter directory where tiled texture files are stored
 asset_path = '/Game'
 material_dir = '/landsmaterials'
-# Change to your Z scale calculated by srtm2heightmap.py
+# Change to your Texture scale calculated by srtm2heightmap.py
 UE4_TILE_TEXTURE_SCALE = 0.003952569169960475
 
 # Scan for texture files
