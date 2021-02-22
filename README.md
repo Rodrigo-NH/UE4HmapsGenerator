@@ -16,7 +16,7 @@ Also on Windows make sure you have appropriated sys environment sets, e.g.:
 
 Script will ask for all necessary parameters needed to take the input images, generate the tiles and generate/inform the necessary importing X,Y,Z UE4 scales.
 It will generate a 'customtiles' directory and auxiliary files in the same directory as origin files are located. The image file to be used as landscape texture/materials is optional but if you use it, needs to be a georeferenced file as well in the same projection/EPSG as the DEM file.
-Look the code for the 'METER_BY_DEGREE_FACTOR' variable, adjust as necessary depending the part of the globe you're working. This conversion is necessary as we need convert spatial resolution (pixel size) to a metric reference (meter) as UE4 workspace is a orthogonal world. It may be better using a DEM image already in a ortoghonal projection (e.g. UTM) as you don't need to adjust 'METER_BY_DEGREE_FACTOR', accordingly your final objectives.
+Look the code for the 'METER_BY_DEGREE_FACTOR' variable, adjust as necessary depending the part of the globe you're working. This conversion is necessary if we need convert spatial resolution (pixel size) in decimal degrees to a metric reference (meter) as UE4 workspace is a orthogonal world. It may be better using a DEM image already in a ortoghonal projection (e.g. UTM) as you don't need to adjust 'METER_BY_DEGREE_FACTOR', accordingly your final objectives.
 This script was tested with [SRTM] DEMs but will accept other valid GeoTiff images.
 Starting from raw SRTM images if you don't know how to answer the Y/N questions, answer (Y)es for all of them to get started.
 [How to download SRTM]
@@ -33,7 +33,7 @@ You can use the script to produce a single tile and import directly in landscape
 
 ## >materialsgen.py<
 
-This script will import the texture files, create and set the materials for each tile. Copy this script under your UE project '/content' folder, edit and change the 'inputdir' and 'UE4_TILE_TEXTURE_SCALE' variables accordingly and run in the UE4 project instance (e.g. File->Execute Python Script).
+This script will import the texture files, create and set the materials to be used for each tile. Copy this script under your UE project '/content' folder, edit and change the 'inputdir' and 'UE4_TILE_TEXTURE_SCALE' variables accordingly and run in the UE4 project instance (e.g. File->Execute Python Script).
 After importing all textures the resulting blueprint for each tile material will be like:
 
 ![UE blueprint](https://raw.githubusercontent.com/Rodrigo-NH/UE4HmapsGenerator/main/readmeassets/blueprint.jpg)
