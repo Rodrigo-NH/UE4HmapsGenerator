@@ -1,8 +1,8 @@
 # UE4HmapsGenerator (heightmaps generator)
 ## Unreal Engine 4 scripts to:
-- Prepare and tile from SRTM (and others) DEM to UE heightmaps while keeping real world X,Y,Z proportions and metrics (UE u.u.) (srtm2heightmap.py)
-- Create landscape textures and materials. (materialsgen.py)
-- Assign landscape materials to tiles. (applymaterials.py)
+- Prepare and tile from SRTM (and others) DEM to UE heightmaps while keeping real world X,Y,Z proportions and metrics (UE u.u.) (>srtm2heightmap.py<)
+- Create landscape textures and materials. (>materialsgen.py<)
+- Assign landscape materials to tiles. (>applymaterials.py<)
 
 Output example: https://www.youtube.com/watch?v=91U2XWXpHJk
 
@@ -29,11 +29,18 @@ The script will detect the most top left coordinates as the origin coordinates f
 
 ![UE import screen](https://raw.githubusercontent.com/Rodrigo-NH/UE4HmapsGenerator/main/readmeassets/ueimportscreen.jpg)
 
-You can use the script to produce a single tile and import directly in landscape mode. If importing tiles in world composition mode, make sure option 'Flip Tile Y Coordinate' is not selected. Either way, use the X,Y,Z scales calculated by the script in the importing screen.
+You can use the script to produce a single tile and import directly in landscape mode. If importing tiles in world composition mode, make sure option 'Flip Tile Y Coordinate' is not selected. Either way, use the X,Y,Z scales calculated by the script in the importing screen. Take care to not select texture 'texture_' files but only the heightmaps png files;
 
+## >materialsgen.py<
 
+This script will import the texture files, create and set the materials for each tile. Copy this script under your UE project '/content' folder, edit and change the 'inputdir' and 'UE4_TILE_TEXTURE_SCALE' variables accordingly and run in the UE4 project instance (e.g. File->Execute Python Script).
+After importing all textures the resulting blueprint for each tile material will be like:
 
-[Work in progress]
+![UE blueprint](https://raw.githubusercontent.com/Rodrigo-NH/UE4HmapsGenerator/main/readmeassets/blueprint.jpg)
+
+## >applymaterials.py<
+
+This script simply apply the texture materials in the corresponding tiles/levels.
 
 [How to download SRTM]: https://www.youtube.com/watch?v=0YPFegTcL4w
 [SRTM]: https://www2.jpl.nasa.gov/srtm/
