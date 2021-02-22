@@ -41,6 +41,7 @@ After importing all textures the resulting blueprint for each tile material will
 ## >applymaterials.py<
 
 This script simply apply the texture materials in the corresponding tiles/levels.
+Take note that for this to work the levels/tiles must be loaded in the viewport/project. This way you can load textures in parts or the whole thing at once.
 
 [How to download SRTM]: https://www.youtube.com/watch?v=0YPFegTcL4w
 [SRTM]: https://www2.jpl.nasa.gov/srtm/
