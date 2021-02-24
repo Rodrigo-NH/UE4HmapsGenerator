@@ -188,6 +188,7 @@ def main():
 
 	UE4_Z_SCALE =  (REAL_WORLD_HEIGHT_DIFFERENCE * 100.0) / zfactorrange #height in centimeters
 	UE4_TILE_TEXTURE_SCALE = UE4_XY_SCALE / (REAL_WORLD_XY_TILE_LENGHT*100.0)
+	HEIGHT_MID_POINT = STATISTICS_MINIMUM + (REAL_WORLD_HEIGHT_DIFFERENCE/2.0)
 
 	print("=================================== OUTPUTS ====================================\n")
 	print("XY_TILE_LENGHT: " + str(REAL_WORLD_XY_TILE_LENGHT))
@@ -195,6 +196,9 @@ def main():
 	print("STATISTICS_MAXIMUM (height): " + str(STATISTICS_MAXIMUM))
 	print("STATISTICS_MINIMUM (height): " + str(STATISTICS_MINIMUM))
 	print("Real World height difference: " + str(REAL_WORLD_HEIGHT_DIFFERENCE))
+	print("Origin X: " + str(START_LONG))
+	print("Origin Y: " + str(START_LAT))
+	print("Height mid point (m): " + str(HEIGHT_MID_POINT))
 	print("\n")
 	print("=========================== UE4 importing parameters ===========================\n")
 	print("UE4 X,Y Scale: " + str(UE4_XY_SCALE))
