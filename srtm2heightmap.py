@@ -1,5 +1,7 @@
-# SPDX-License-Identifier: BSD-2-Clause
+# SPDX-License-Identifier: BSD-3-Clause
 # Rodrigo Nascimento Hernandez
+# Tested UE versions:
+# 4.26.1
 
 import os
 from PIL import Image
@@ -183,12 +185,14 @@ def main():
 
 	if zspace:
 		zfactorrange = 512
+		HEIGHT_MID_POINT = STATISTICS_MINIMUM + (REAL_WORLD_HEIGHT_DIFFERENCE / 2.0)
 	else:
 		zfactorrange = 256
+		HEIGHT_MID_POINT = STATISTICS_MINIMUM
 
 	UE4_Z_SCALE =  (REAL_WORLD_HEIGHT_DIFFERENCE * 100.0) / zfactorrange #height in centimeters
 	UE4_TILE_TEXTURE_SCALE = UE4_XY_SCALE / (REAL_WORLD_XY_TILE_LENGHT*100.0)
-	HEIGHT_MID_POINT = STATISTICS_MINIMUM + (REAL_WORLD_HEIGHT_DIFFERENCE/2.0)
+
 
 	print("=================================== OUTPUTS ====================================\n")
 	print("XY_TILE_LENGHT: " + str(REAL_WORLD_XY_TILE_LENGHT))
@@ -198,12 +202,12 @@ def main():
 	print("Real World height difference: " + str(REAL_WORLD_HEIGHT_DIFFERENCE))
 	print("Origin X: " + str(START_LONG))
 	print("Origin Y: " + str(START_LAT))
-	print("Height mid point (m): " + str(HEIGHT_MID_POINT))
 	print("\n")
 	print("=========================== UE4 importing parameters ===========================\n")
 	print("UE4 X,Y Scale: " + str(UE4_XY_SCALE))
 	print("UE4 Z Scale: " + str(UE4_Z_SCALE))
 	print("Tile texture scale: " + str(UE4_TILE_TEXTURE_SCALE))
+	print("Height point reference (m): " + str(HEIGHT_MID_POINT))
 	print("\n")
 
 def getmaxminheight(inputfile):
