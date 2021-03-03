@@ -60,20 +60,10 @@ for key in ldata:
         nv = unreal.Vector(x=xx, y=yy, z=zvalue)
         if pi == 0:
             rt = unreal.Rotator(roll=0.0, pitch=0.0, yaw=0.0)
-            tblt = ed.spawn_actor_from_object(importlines, nv, rt, transient=True)
-            splinename = tblt.get_name()
-            ag = ed.get_all_level_actors_components()
-            for each in ag:
-                tlab = each.get_full_name()
-                if splinename in tlab:
-                    if 'SplineComponent' in tlab:
-                        SPLINE = each
-                        SPLINE.input_spline_points_to_construction_script = True
-                        SPLINE.set_spline_point_type(0, SplinePointType, update_spline=True)
-        else:
-            SPLINE.add_spline_point_at_index(nv, pi, unreal.SplineCoordinateSpace.WORLD)
-            SPLINE.set_spline_point_type(pi, SplinePointType, update_spline=True)
+            actorObject = ed.spawn_actor_from_class(importlines, nv, rt, transient=False)
+            SceneComponent = actorObject.root_component
+            SplineComponent = SceneComponent.get_child_component(1)
+            SplineComponent.clear_spline_points()
+        SplineComponent.add_spline_point_at_index(nv, pi, unreal.SplineCoordinateSpace.WORLD)
+        SplineComponent.set_spline_point_type(pi, SplinePointType, update_spline=True)
         pi += 1
-
-    SPLINE.remove_spline_point(pi)
-    SPLINE.update_spline()
